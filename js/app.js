@@ -32,7 +32,7 @@ var app = new Vue({
       },
     },
     mounted() {
-if(localStorage.shoppingList){
+    if(localStorage.shoppingList){
     this.shoppingList = JSON.parse(localStorage.shoppingList)
 }
     },
