@@ -24,18 +24,19 @@
       <form @submit.prevent="addItem" id="inputItem">
         <div class="input-group mb-3">
         <input v-model="newItem" placeholder="Enter new item...">
-        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Item</button>
+        <button @submit.prevent="addItem" type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Item</button>
         </div>
-
+      <!--Possibly add a category list to sort items by type, dairy, meat, etc-->
       </form>
 
 
-      <!-- Print out our shopping list (marking collected / deleting) -->
+      <!-- Print out shopping list -->
       <div class="input-groupmb-3" id="listItems">
       <ul>
         <li v-for="(item, n) in shoppingList">
           <input type="checkbox" v-model="item.collected" @change="save">
           <span class="inputItem" v-bind:class="{collected: item.collected}">{{item.name}}</span>
+          <!--Add item.category in small font below item-->
           <button @click="deleteItem(n)" type="button" class="btn btn-primary"><i id="trashICON" class="fa-solid fa-trash"></i> Delete</button>
         </li>
       </ul>
